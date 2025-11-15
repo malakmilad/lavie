@@ -9,7 +9,7 @@
             @foreach ($sliders as $slider)
                 <!-- Start Single Banner  -->
                 <div class="swiper-slide">
-                    <div class="rbt-banner-area rbt-banner-6 variation-03 bg_image" style="background-image: url({{config('app.uploads').$slider->img}})" data-gradient-overlay="7">
+                    <div class="rbt-banner-area rbt-banner-6 variation-03 bg_image" style="background-image: url({{$slider->img}})" data-gradient-overlay="7">
                         <div class="wrapper w-100">
                             <div class="container">
                                 <div class="row align-items-center">
@@ -81,10 +81,10 @@
     <div class="swiper rbt-swiper-thumb rbtmySwiperThumb">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="assets/images/bg/bg-image-1.png" alt="Banner Images" />
+                <img src="{{ asset("assets/images/bg/bg-image-1.png") }}" alt="Banner Images" />
             </div>
             <div class="swiper-slide">
-                <img src="assets/images/bg/bg-image-2.jpg" alt="Banner Images" />
+                <img src="{{ asset('assets/images/bg/bg-image-2.jpg') }}" alt="Banner Images" />
             </div>
         </div>
     </div>
