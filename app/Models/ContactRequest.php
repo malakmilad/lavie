@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ContactRequest extends Model
 {
-    protected $table = 'contact_requests';
+    use HasFactory;
+
+    public $table = 'contact_requests';
 
     protected $fillable = [
-        'fullname',
-        'phone',
-        'email',
-        'message',
+        'status',
     ];
+
 }

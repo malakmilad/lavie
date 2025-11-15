@@ -11,4 +11,10 @@ class ServiceReview extends Model
 
     protected $table = 'services_reviews';
 
+    public $timestamps = false;
+
+    protected $fillable = [
+        'service_id',
+        'img'
+    ];
 }

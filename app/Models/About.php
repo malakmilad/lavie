@@ -11,5 +11,14 @@ class About extends Model
     use HasFactory;
 
     protected $table = 'about';
+
+    protected $fillable = [
+        'title',
+        'title_en',
+        'description',
+        'description_en',
+        'main_image',
+        'sort_order',
+    ];
     
 }

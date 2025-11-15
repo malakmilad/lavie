@@ -11,4 +11,5 @@ class EducationVideo extends Model
 
     protected $table = 'education_videos';
 
+    protected $guarded = ['id'];
 }

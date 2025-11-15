@@ -11,4 +11,13 @@ class ServiceFaq extends Model
 
     protected $table = 'services_faq';
 
+    protected $fillable = [
+        'service_id',
+        'question',
+        'question_en',
+        'answer',
+        'answer_en',
+        'link',
+        'video',
+    ];
 }

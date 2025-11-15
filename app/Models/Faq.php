@@ -4,12 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Faq extends Model
 {
     use HasFactory;
 
-    protected $table = "faq";
-    
+    protected $table = 'faq';
+
+    protected $fillable = [
+        'question',
+        'question_en',
+        'answer',
+        'answer_en',
+        'sort_order',
+        'featured',
+    ];
 }
