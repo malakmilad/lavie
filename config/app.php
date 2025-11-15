@@ -53,7 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-
+    'uploads' => 'http://lavie.test/uploads/',
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
