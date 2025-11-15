@@ -1,0 +1,110 @@
+<!-- main-sidebar -->
+		<?php $admin = Auth()->user(); ?>
+		<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+		<aside class="app-sidebar sidebar-scroll">
+			<div class="main-sidebar-header active">
+				<a class="desktop-logo logo-light active" href="{{ url('/admin')}}"><img src="{{URL::asset('assets/img/brand/logo.png')}}" class="main-logo" alt="logo"></a>
+				<a class="desktop-logo logo-dark active" href="{{ url('/admin')}}"><img src="{{URL::asset('assets/img/brand/logo.png')}}" class="main-logo dark-theme" alt="logo"></a>
+				<a class="logo-icon mobile-logo icon-light active" href="{{ url('/admin')}}"><img src="{{URL::asset('assets/img/brand/favicon.ico')}}" class="logo-icon" alt="logo"></a>
+				<a class="logo-icon mobile-logo icon-dark active" href="{{ url('/admin')}}"><img src="{{URL::asset('assets/img/brand/favicon.ico')}}" class="logo-icon dark-theme" alt="logo"></a>
+			</div>
+			<div class="main-sidemenu">
+				<div class="app-sidebar__user clearfix">
+					<div class="dropdown user-pro-body">
+						<div class="">
+							<img alt="user-img" class="avatar avatar-xl brround" src="{{URL::asset('assets/img/faces/6.jpg')}}"><span class="avatar-status profile-status bg-green"></span>
+						</div>
+						<div class="user-info">
+							<h4 class="font-weight-semibold mt-3 mb-0">{{auth()->user()->name}}</h4>
+							<span class="mb-0 text-muted">Admin</span>
+						</div>
+					</div>
+				</div>
+				<ul class="side-menu">
+					<li class="side-item side-item-category">Main</li>
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/admin')}}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/><path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/></svg><span class="side-menu__label">Dashboard</span></a>
+					</li>
+
+					<li class="side-item side-item-category">Pages</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-boxes-stacked"></i><span class="side-menu__label">Services</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('services.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('services.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-pen-to-square"></i><span class="side-menu__label">Articles</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('articles.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('articles.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-question-circle"></i></i><span class="side-menu__label">Faqs</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('faqs.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('faqs.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-photo-video"></i><span class="side-menu__label">reviews</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('reviews.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('reviews.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-pen-to-square"></i><span class="side-menu__label">About</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('abouts.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('abouts.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-location-dot"></i><span class="side-menu__label">branches</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('branches.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('branches.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-images"></i><span class="side-menu__label">Homepage Sliders</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('sliders.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('sliders.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page='#') }}"><i class="fa-solid fa-video"></i><span class="side-menu__label">Education Videos</span><i class="angle fe fe-chevron-down"></i></a>
+						<ul class="slide-menu">
+							<li><a class="slide-item" href="{{route('videos.index')}}">View all</a></li>
+							<li><a class="slide-item" href="{{route('videos.create')}}">Create new</a></li>
+						</ul>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/admin/profile')}}"><i class="fa-solid fa-user"></i><span class="side-menu__label">Profile</span></a>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/admin/contactRequests')}}"><svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 5h4v6H5zm10 8h4v6h-4zM5 17h4v2H5zM15 5h4v2h-4z" opacity=".3"/><path d="M3 13h8V3H3v10zm2-8h4v6H5V5zm8 16h8V11h-8v10zm2-8h4v6h-4v-6zM13 3v6h8V3h-8zm6 4h-4V5h4v2zM3 21h8v-6H3v6zm2-4h4v2H5v-2z"/></svg><span class="side-menu__label">Contact Requests</span></a>
+					</li>
+
+					<li class="slide">
+						<a class="side-menu__item" href="{{ url('/admin/consultations')}}"><i class="fa-solid fa-comment-dots"></i><span class="side-menu__label">Consultations</span></a>
+					</li>
+
+				</ul>
+			</div>
+		</aside>
+<!-- main-sidebar -->
