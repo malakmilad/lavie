@@ -1,0 +1,47 @@
+@media print {
+    @page {
+        /* remove header and footer */
+        margin-top: 0;
+        margin-bottom: 0;
+        border-top: none;
+        border-bottom: none;
+        header: none;
+        footer: none;
+    }
+    body {
+        font-family: "Times New Roman", Times, serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .print-only {
+        width: 8cm;
+        height: 12.7cm;
+        margin: 20px 0 0 0;
+        page-break-after: always;
+        border: 1px solid #ccc;
+        position: relative;
+    }
+    .badge-box {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 4px;
+        border-top: 1px solid #ccc;
+    }
+    .label-text {
+        font-size: 13px;
+        margin: 2px;
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .label-img {
+        margin-top: 3px;
+        height: 1.7cm;
+        width: 1.7cm
+    }
+
+}
