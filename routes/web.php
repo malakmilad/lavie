@@ -44,10 +44,10 @@ Route::group(['middleware' => \App\Http\Middleware\Locale::class] , function() {
 
 Auth::routes(['register' => false]);
 
-Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function() {
+Route::group(['prefix'=>'admins', 'middleware'=>['auth']], function() {
 
     Route::get('/', [AdminController::class, 'dashboard'])->name('home');
-    
+
     // services routes
     Route::resource('/services', ServiceController::class);
     Route::post('services/{id}', [ServiceController::class, 'update']);

@@ -2,9 +2,9 @@
 <!-- Back-to-top -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
 <!-- JQuery min js -->
-<script src="{{URL::asset('assets/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{URL::asset('admin/assets/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap Bundle js -->
-<script src="{{URL::asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{URL::asset('admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 <!-- Poppins font-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,12 +14,12 @@
 <!-- font-awesome -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="{{URL::asset('assets/plugins/sidebar/sidebar-custom.js')}}"></script>
+<script src="{{URL::asset('admin/assets/plugins/sidebar/sidebar-custom.js')}}"></script>
 <!-- Sticky js -->
-<script src="{{URL::asset('assets/js/sticky.js')}}"></script>
+<script src="{{URL::asset('admin/assets/js/sticky.js')}}"></script>
 <!-- custom js -->
-<script src="{{URL::asset('assets/js/custom.js')}}"></script><!-- Left-menu js-->
-<script src="{{URL::asset('assets/plugins/side-menu/sidemenu.js')}}"></script>
+<script src="{{URL::asset('admin/assets/js/custom.js')}}"></script><!-- Left-menu js-->
+<script src="{{URL::asset('admin/assets/plugins/side-menu/sidemenu.js')}}"></script>
 
 <!--sweetalert2 js -->
 <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
@@ -87,7 +87,7 @@
 
     $(document).ready(function() {
 
-        
+
 
     });
 </script>
