@@ -18,11 +18,11 @@ class AdminController extends Controller
     public function index($id)
     {
         if(view()->exists($id)){
-            return view($id);
+            return view('admin.'.$id);
         }
         else
         {
-            return view('404');
+            return view('admin.404');
         }
 
     }
@@ -34,7 +34,7 @@ class AdminController extends Controller
         $faqCount = Faq::count();
         $contactsCount = ContactRequest::count();
         $consultationsCount = Consultation::count();
-        return view('index', compact('servicesCount', 'articlesCount', 'faqCount', 'contactsCount', 'consultationsCount'));
+        return view('admin.index', compact('servicesCount', 'articlesCount', 'faqCount', 'contactsCount', 'consultationsCount'));
     }
 
 }

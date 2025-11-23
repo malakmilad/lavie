@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 ContactRequest Details
 @endsection
@@ -44,10 +44,10 @@ ContactRequest Details
 							<th scope="row">date</th>
 							<td>{{date('d M Y', strtotime($contactRequest->created_at))}}</td>
 						  </tr>
-						  
+
 						</tbody>
 					</table>
-	
+
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($profile) ? 'Edit profile': 'Add profile'}}
 @endsection
@@ -35,7 +35,7 @@
 								<p class="help text-danger">{{$errors->first('name')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-6">
 							<label class="text-capitalize" for="name_en">name (English)</label>
 							<input type="text" class="form-control" name="name_en" id="name_en" required value="{{isset($profile) ? $profile->name_en : old('name_en')}}" placeholder="Enter name in English">
@@ -51,7 +51,7 @@
 								<p class="help text-danger">{{$errors->first('title')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-6">
 							<label class="text-capitalize" for="title_en">title (English)</label>
 							<input type="text" class="form-control" name="title_en" id="title_en" required value="{{isset($profile) ? $profile->title_en : old('title_en')}}" placeholder="Enter title in English">
@@ -59,7 +59,7 @@
 								<p class="help text-danger">{{$errors->first('title_en')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-6">
 							<label class="text-capitalize" for="phone">phone</label>
 							<input type="text" class="form-control" name="phone" id="phone" required value="{{isset($profile) ? $profile->phone : old('phone')}}" placeholder="Enter phone">
@@ -75,8 +75,8 @@
 								<p class="help text-danger">{{$errors->first('email')}}</p>
 							@endif
 						</div>
-						
-						
+
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="cv">cv</label>
 							<textarea name="cv" id="editor" rows="10" class="form-control">
@@ -86,7 +86,7 @@
 								<p class="help text-danger">{{$errors->first('cv')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="cv_en">cv (English)</label>
 							<textarea name="cv_en" id="editor_en" rows="10" class="form-control">
@@ -96,7 +96,7 @@
 								<p class="help text-danger">{{$errors->first('cv_en')}}</p>
 							@endif
 						</div>
-						
+
 
 						<!-- img Upload -->
 						<div class="col-12">
@@ -199,7 +199,7 @@
     ClassicEditor
         .create(document.querySelector('#editor'), {
             language: 'ar', //Arabic for RTL
-           
+
         })
         .catch(error => {
             console.error(error);
@@ -208,7 +208,7 @@
 	ClassicEditor
         .create(document.querySelector('#editor_en'), {
             language: 'en',
-           
+
         })
         .catch(error => {
             console.error(error);

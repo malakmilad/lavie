@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 Edit Service faq
 @endsection
@@ -109,8 +109,8 @@ Edit Service faq
 <script>
 	ClassicEditor
         .create(document.querySelector('#editor'), {
-            language: 'ar', 
-           
+            language: 'ar',
+
         })
         .catch(error => {
             console.error(error);
@@ -118,8 +118,8 @@ Edit Service faq
 
 	ClassicEditor
         .create(document.querySelector('#editor_en'), {
-            language: 'en', 
-           
+            language: 'en',
+
         })
         .catch(error => {
             console.error(error);

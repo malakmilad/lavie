@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($about) ? 'Edit about': 'Add about'}}
 @endsection
@@ -137,7 +137,7 @@
     ClassicEditor
         .create(document.querySelector('#editor'), {
             language: 'ar', //Arabic for RTL
-           
+
         })
         .catch(error => {
             console.error(error);
@@ -145,8 +145,8 @@
 
 	ClassicEditor
         .create(document.querySelector('#editor_en'), {
-            language: 'en', 
-           
+            language: 'en',
+
         })
         .catch(error => {
             console.error(error);

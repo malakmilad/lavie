@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($user) ? 'Edit user': 'Add user'}}
 @endsection

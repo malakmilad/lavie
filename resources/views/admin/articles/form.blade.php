@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($article) ? 'Edit article': 'Add article'}}
 @endsection
@@ -34,7 +34,7 @@
 								<p class="help text-danger">{{$errors->first('title')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="title_en">title (English)</label>
 							<input type="text" class="form-control" name="title_en" id="title_en" required value="{{isset($article) ? $article->title_en : old('title_en')}}" placeholder="Enter title in English">
@@ -42,7 +42,7 @@
 								<p class="help text-danger">{{$errors->first('title_en')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="overview">overview</label>
 							<input type="text" class="form-control" name="overview" id="overview" required value="{{isset($article) ? $article->overview : old('overview')}}" placeholder="Enter overview">
@@ -50,7 +50,7 @@
 								<p class="help text-danger">{{$errors->first('overview')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="overview_en">overview (English)</label>
 							<input type="text" class="form-control" name="overview_en" id="overview_en" required value="{{isset($article) ? $article->overview_en : old('overview_en')}}" placeholder="Enter overview in English">
@@ -58,7 +58,7 @@
 								<p class="help text-danger">{{$errors->first('overview_en')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="description">description</label>
 							<textarea name="description" id="editor" rows="10" class="form-control">
@@ -68,7 +68,7 @@
 								<p class="help text-danger">{{$errors->first('description')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="description_en">description (English)</label>
 							<textarea name="description_en" id="editor_en" rows="10" class="form-control">
@@ -78,7 +78,7 @@
 								<p class="help text-danger">{{$errors->first('description_en')}}</p>
 							@endif
 						</div>
-						
+
 
 						<!-- img Upload -->
 						<div class="col-12">
@@ -181,7 +181,7 @@
     ClassicEditor
         .create(document.querySelector('#editor'), {
             language: 'ar', //Arabic for RTL
-           
+
         })
         .catch(error => {
             console.error(error);
@@ -190,7 +190,7 @@
 	ClassicEditor
         .create(document.querySelector('#editor_en'), {
             language: 'en',
-           
+
         })
         .catch(error => {
             console.error(error);

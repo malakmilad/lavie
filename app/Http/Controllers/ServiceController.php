@@ -30,14 +30,14 @@ class ServiceController extends Controller
             $all_records_count = $query->count();
 
             $num_of_pages = (int) ceil($all_records_count / $records_to_show);
-            
+
             $services = $query->skip($records_to_skip)
             ->take($records_to_show)
             ->get();
 
-            return view('services.index', compact('services','num_of_pages', 'page'));
+            return view('admin.services.index', compact('services','num_of_pages', 'page'));
 
-            
+
         } else {
             return redirect()->route('services.index', ['page'=>1]);
         }
@@ -54,7 +54,7 @@ class ServiceController extends Controller
             Alert::error('error', session()->get('error'));
         }
 
-        return view('services.form');
+        return view('admin.services.form');
     }
 
     public function store(Request $request) {
@@ -93,12 +93,12 @@ class ServiceController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
     }
 
     public function show($id) {
-        
+
         if(session()->has('success')) {
             Alert::success('success', session()->get('success'));
         }
@@ -112,7 +112,7 @@ class ServiceController extends Controller
         $service_faqs = ServiceFaq::where('service_id', $id)->get();
         $service_reviews = ServiceReview::where('service_id', $id)->get();
 
-        return view('services.form', compact('service', 'service_faqs', 'service_reviews'));
+        return view('admin.services.form', compact('service', 'service_faqs', 'service_reviews'));
     }
 
     public function update(Request $request, Service $service, $id)
@@ -154,7 +154,7 @@ class ServiceController extends Controller
             if($service->save()) {
                 $status = 1;
             }
-            
+
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
 
@@ -168,9 +168,9 @@ class ServiceController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
-        
+
     }
 
     public function destroy(Request $request)
@@ -215,15 +215,15 @@ class ServiceController extends Controller
             $fileName => 'required|array',
             $fileName.'.*' => 'required|mimes:jpeg,jpg,png,webp|max:1024',
         ];
-        
+
         $customImageMessages = [
             'required' => 'Image field is required',
             'mimes' => 'Image type not allowed',
             'max' => 'Image size shouldn\'t be grater than 1024KB',
         ];
         $this->validate($request, $imgRules, $customImageMessages);
-        
-        
+
+
         foreach($images as $imagefile) {
             $imgName = uniqid().'_'.Str::random(6).'.'.$imagefile->extension();
 
@@ -252,7 +252,7 @@ class ServiceController extends Controller
             } else {
                 $newVideoSrcs = $request->youtube_url;
             }
-            
+
 
             $is_done = $service->fill(['youtube_urls' => $newVideoSrcs])->save();
 
@@ -265,7 +265,7 @@ class ServiceController extends Controller
         }
 
         return redirect()->back();
-        
+
     }
 
     public function deleteServiceVideo(Request $request)
@@ -291,7 +291,7 @@ class ServiceController extends Controller
         } catch (\Exception $e) {
             $message = $e->getMessage();
         }
-        
+
 
         return response()->json([
             'status'=>$status,
@@ -319,7 +319,7 @@ class ServiceController extends Controller
         }
 
         return redirect()->back();
-        
+
     }
 
     public function showServiceFaq($id) {
@@ -334,7 +334,7 @@ class ServiceController extends Controller
         $service_faq = ServiceFaq::findOrFail($id);
 
         return view('services.service_faq', compact('service_faq'));
-        
+
     }
 
     public function updateServiceFaq(Request $request) {
@@ -357,7 +357,7 @@ class ServiceController extends Controller
         }
 
         return redirect()->back();
-        
+
     }
 
     public function deleteServiceFaq(Request $request)
@@ -396,7 +396,7 @@ class ServiceController extends Controller
         }
 
         return redirect()->back();
-        
+
     }
 
     public function deleteServiceReview(Request $request)
@@ -421,30 +421,30 @@ class ServiceController extends Controller
 
         // Get the uploaded file
         $file = $request->file($file_name);
-    
+
         // Validation rules for general files
         $fileRules = [
             $file_name => $rules,
         ];
-    
+
         // Validate the file input
         $this->validate($request, $fileRules);
-    
+
         // Generate a unique name for the file
         $fileName = uniqid().'_'.Str::random(6).'.'.$file->getClientOriginalExtension();
-    
+
         // Specify the directory where you want to save the file
         $directory = 'uploads/'.$folder_name;
-    
+
         // Create the directory if it doesn't exist
         File::makeDirectory($directory, $mode = 0777, true, true);
-    
+
         // Move the uploaded file to the specified directory
         $file->move($directory, $fileName);
-    
+
         // Return the path of the uploaded file
         return $folder_name.'/'.$fileName;
     }
-    
+
 
 }

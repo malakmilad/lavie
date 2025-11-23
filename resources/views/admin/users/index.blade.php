@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title', 'Users')
 @section('page-header')
 	<!-- breadcrumb -->
@@ -70,7 +70,7 @@
 		$.ajaxSetup({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			} 
+			}
 		});
 
 		$('.deleteRow').on('click', function(e) {
@@ -100,7 +100,7 @@
 						});
 					}
 				});
-			
+
 		});
 
 	});

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($slider) ? 'Edit slider': 'Add slider'}}
 @endsection
@@ -149,7 +149,7 @@
     ClassicEditor
         .create(document.querySelector('#editor'), {
             language: 'ar', //Arabic for RTL
-           
+
         })
         .catch(error => {
             console.error(error);

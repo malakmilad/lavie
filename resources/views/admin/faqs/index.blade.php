@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title', 'faqs')
 
 @section('page-header')
@@ -63,11 +63,11 @@
 
 						<!-- Start Pagination -->
 						@if (count($faqs) > 0)
-		
+
 						<div class="text-center text-md-left font-size-14 mb-3 text-lh-1">Page {{$page}}–{{$num_of_pages}}</div>
 						<nav aria-label="Page navigation" id="pagiantionNav">
 							<ul class="list-pagination-1 pagination border border-color-4 rounded-sm mb-5 mb-lg-0 overflow-auto overflow-xl-visible justify-content-md-center align-items-center py-2">
-								
+
 								<li class="page-item {{$page==1 ? 'disabled' : ''}}">
 									<a class="page-link bg-none  rounded-0 text-dark" href="#" data-page="1" aria-label="Previous" title="Start">
 										<i class="fa-solid fa-angles-left"></i>
@@ -78,7 +78,7 @@
 										<i class="fa-solid fa-angle-left" title="Previous"></i>
 									</a>
 								</li>
-		
+
 								<?php
 									if($page < 11) {
 										$pagination_start = 1;
@@ -86,17 +86,17 @@
 										$pagination_start = ((int) ($page / 10)) * 10;
 									}
 								?>
-		
+
 								@for ($page_count = $pagination_start, $i=1; $page_count <= $num_of_pages; $page_count++, $i++)
-		
+
 								<?php if ($i>10) { break;} ?>
-		
+
 								<li class="page-item {{$page==$page_count ? 'active disabled-link' : ''}}">
 									<a class="page-link font-size-14 text-dark {{$page==$page_count ? 'text-white' : ''}}" href="#" data-page="{{$page_count}}">{{$page_count}}</a>
 								</li>
-								
+
 								@endfor
-		
+
 								<li class="page-item {{$page==$num_of_pages ? 'disabled' : ''}}">
 									<a class="page-link bg-none  rounded-0 text-dark" href="#" data-page="{{$page+1}}" aria-label="Next">
 										<i class="fa-solid fa-angle-right" title="Next"></i>
@@ -107,10 +107,10 @@
 										<i class="fa-solid fa-angles-right"></i>
 									</a>
 								</li>
-								
+
 							</ul>
 						</nav>
-		
+
 						@endif
 						<!-- End Pagination -->
 
@@ -139,7 +139,7 @@
 
 	}
 
-	
+
 
 	function deleteRecord(record_id) {
 
@@ -156,7 +156,7 @@
 
 	}
 
-	
+
 
 	function confirmDeleteRecord(record_id) {
 		return function() {
@@ -164,14 +164,14 @@
 		};
 	}
 
-	
-		
+
+
 
 	$(document).ready(function() {
 		$.ajaxSetup({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			} 
+			}
 		});
 
 
@@ -192,7 +192,7 @@
 			e.preventDefault();
 			pagination($(this));
 		});
-		
+
 	});
 
 

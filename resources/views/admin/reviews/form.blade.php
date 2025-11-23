@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($review) ? 'Edit review': 'Add review'}}
 @endsection
@@ -76,7 +76,7 @@
 												@endif
 											</div>
 										</div>
-										
+
 									</div>
 								</div>
 							</div>
@@ -149,7 +149,7 @@
 		// Initial check on page load to show the checked input's target
 		$('input[name="media_type"]').each(function() {
 			if ($(this).is(':checked')) {
-				$(".media-container").addClass("d-none"); 
+				$(".media-container").addClass("d-none");
 				$($(this).data('target')).removeClass("d-none");
 			}
 		});

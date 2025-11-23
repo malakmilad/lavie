@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($faq) ? 'Edit faq': 'Add faq'}}
 @endsection
@@ -36,7 +36,7 @@
 								<p class="help text-danger">{{$errors->first('question')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="question_en">question (English)</label>
 							<input type="text" class="form-control" name="question_en" id="question_en" required value="{{isset($faq) ? $faq->question_en : old('question_en')}}" placeholder="Enter question in English">
@@ -44,7 +44,7 @@
 								<p class="help text-danger">{{$errors->first('question_en')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="answer">answer</label>
 							<textarea name="answer" id="editor" rows="10" class="form-control">
@@ -54,7 +54,7 @@
 								<p class="help text-danger">{{$errors->first('answer')}}</p>
 							@endif
 						</div>
-						
+
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="answer_en">answer (English)</label>
 							<textarea name="answer_en" id="editor_en" rows="10" class="form-control">
@@ -64,7 +64,7 @@
 								<p class="help text-danger">{{$errors->first('answer_en')}}</p>
 							@endif
 						</div>
-						
+
 
 						<div class="form-group col-12">
 							<label class="text-capitalize" for="sort_order">sort order</label>
@@ -113,8 +113,8 @@
 <script>
 	ClassicEditor
         .create(document.querySelector('#editor'), {
-            language: 'ar', 
-           
+            language: 'ar',
+
         })
         .catch(error => {
             console.error(error);
@@ -122,8 +122,8 @@
 
 	ClassicEditor
         .create(document.querySelector('#editor_en'), {
-            language: 'en', 
-           
+            language: 'en',
+
         })
         .catch(error => {
             console.error(error);

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($branch) ? 'Edit branch': 'Add branch'}}
 @endsection
@@ -99,7 +99,7 @@
 								<p class="help text-danger">{{$errors->first('longitude')}}</p>
 							@endif
 						</div>
-	
+
 						<div class="form-group col-12 mb-0 mt-3 justify-content-end">
 							<div>
 								<button type="submit" class="btn btn-primary">{{isset($branch) ? 'Update': 'Create'}}</button>

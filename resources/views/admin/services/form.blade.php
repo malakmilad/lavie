@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('title')
 	{{isset($service) ? 'Edit service': 'Add service'}}
 @endsection
@@ -152,7 +152,7 @@
 						</div>
 						<!-- images Upload closed -->
 
-						
+
 
 						<div class="form-group col-12 mb-0 mt-3 justify-content-end">
 							<div>
@@ -249,7 +249,7 @@
 			</div>
 		</div>
 		<!-- /service videos end -->
-		
+
 		<!-- reviews form start -->
 		<div class="col-sm-12">
 			<div class="card pt-4 box-shadow-0">
@@ -472,7 +472,7 @@
     ClassicEditor
         .create(document.querySelector('#editor'), {
             language: 'ar', //Arabic for RTL
-           
+
         })
         .catch(error => {
             console.error(error);
@@ -481,13 +481,13 @@
 	ClassicEditor
         .create(document.querySelector('#editor_en'), {
             language: 'en',
-           
+
         })
         .catch(error => {
             console.error(error);
         });
 
-	
+
 	function deleteRecord(record_id, src , route) {
 
 		var ajaxPromise = ajaxRequest('POST', route, {record_id: record_id, src: src});
@@ -516,7 +516,7 @@
 		$.ajaxSetup({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			} 
+			}
 		});
 
 		// Delete record

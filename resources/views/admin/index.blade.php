@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('page-header')
 <!-- breadcrumb -->
 <div class="breadcrumb-header justify-content-between">
@@ -101,7 +101,7 @@
 <!-- row closed -->
 
 
-	
+
 
 </div>
 <!-- Container closed -->
