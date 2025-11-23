@@ -8,6 +8,7 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.31",
+        "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.6",
         "realrashid/sweet-alert": "^7.3"
@@ -66,15 +67,19 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
-        }
+        },
+        "secure-http": false,
+        "disable-tls": true
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "repositories": [{
+        "name": "packagist.org",
+        "type": "composer",
+        "url": "http://repo.packagist.org"
+    },{
         "name": "sweet-alert",
         "type": "vcs",
         "url": "https://github.com/realrashid/sweet-alert"
-    },{
-        "packagist": false
     }]
 }
