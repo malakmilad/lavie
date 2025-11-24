@@ -7,11 +7,11 @@ use App\Models\ServiceFaq;
 use App\Models\ServiceReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
-use Log;
 use RealRashid\SweetAlert\Facades\Alert;
-use Str;
 
 class ServiceController extends Controller
 {
@@ -70,6 +70,12 @@ class ServiceController extends Controller
             // Upload Main Image
             $imgName = $this->uploadFile($request, 'main_image', 'services_imgs', 'required|mimes:jpeg,jpg,png,webp|max:1024');
             $inputs['main_image'] = $imgName;
+
+            if($request->imgs) {
+                // Upload images
+                $imgs = $this->uploadImages($request, 'imgs', 'services_imgs');
+                $inputs['imgs'] = implode(', ', $imgs);
+            }
 
             if($request->video) {
                 // Upload video

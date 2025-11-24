@@ -143,7 +143,7 @@
 
 	function deleteRecord(record_id) {
 
-		var ajaxPromise = ajaxRequest('POST', "{{url('admin/delete/service')}}", {record_id: record_id});
+		var ajaxPromise = ajaxRequest('POST', "{{url('admins/delete/service')}}", {record_id: record_id});
 
 		ajaxPromise.done(function(response) {
 			swalAlert(response.message, '' ,response.status);
