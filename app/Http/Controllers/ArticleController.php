@@ -28,14 +28,14 @@ class ArticleController extends Controller
             $all_records_count = $query->count();
 
             $num_of_pages = (int) ceil($all_records_count / $records_to_show);
-            
+
             $articles = $query->skip($records_to_skip)
             ->take($records_to_show)
             ->get();
 
-            return view('articles.index', compact('articles','num_of_pages', 'page'));
+            return view('admin.articles.index', compact('articles','num_of_pages', 'page'));
 
-            
+
         } else {
             return redirect()->route('articles.index', ['page'=>1]);
         }
@@ -52,7 +52,7 @@ class ArticleController extends Controller
             Alert::error('error', session()->get('error'));
         }
 
-        return view('articles.form');
+        return view('admin.articles.form');
     }
 
     public function store(Request $request) {
@@ -89,12 +89,12 @@ class ArticleController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
     }
 
     public function show($id) {
-        
+
         if(session()->has('success')) {
             Alert::success('success', session()->get('success'));
         }
@@ -105,7 +105,7 @@ class ArticleController extends Controller
 
         $article = Article::findOrFail($id);
 
-        return view('articles.form', compact('article'));
+        return view('admin.articles.form', compact('article'));
     }
 
     public function update(Request $request, Article $article, $id)
@@ -138,7 +138,7 @@ class ArticleController extends Controller
             if($article->save()) {
                 $status = 1;
             }
-            
+
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
 
@@ -152,9 +152,9 @@ class ArticleController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
-        
+
     }
 
     public function destroy(Request $request)
@@ -200,15 +200,15 @@ class ArticleController extends Controller
             $fileName => 'required|array',
             $fileName.'.*' => 'required|mimes:jpeg,jpg,png,webp|max:300',
         ];
-        
+
         $customImageMessages = [
             'required' => 'Image field is required',
             'mimes' => 'Image type not allowed',
             'max' => 'Image size shouldn\'t be grater than 300KB',
         ];
         $this->validate($request, $imgRules, $customImageMessages);
-        
-        
+
+
         foreach($images as $imagefile) {
             $imgName = uniqid().'_'.Str::random(6).'.'.$imagefile->extension();
 
@@ -231,30 +231,30 @@ class ArticleController extends Controller
 
         // Get the uploaded file
         $file = $request->file($file_name);
-    
+
         // Validation rules for general files
         $fileRules = [
             $file_name => $rules,
         ];
-    
+
         // Validate the file input
         $this->validate($request, $fileRules);
-    
+
         // Generate a unique name for the file
         $fileName = uniqid().'_'.Str::random(6).'.'.$file->getClientOriginalExtension();
-    
+
         // Specify the directory where you want to save the file
         $directory = 'uploads/'.$folder_name;
-    
+
         // Create the directory if it doesn't exist
         File::makeDirectory($directory, $mode = 0777, true, true);
-    
+
         // Move the uploaded file to the specified directory
         $file->move($directory, $fileName);
-    
+
         // Return the path of the uploaded file
         return $folder_name.'/'.$fileName;
     }
-    
+
 
 }

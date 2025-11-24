@@ -28,12 +28,12 @@ class FaqController extends Controller
             $all_records_count = $query->count();
 
             $num_of_pages = (int) ceil($all_records_count / $records_to_show);
-            
+
             $faqs = $query->skip($records_to_skip)->take($records_to_show)->get();
 
-            return view('faqs.index', compact('faqs','num_of_pages', 'page'));
+            return view('admin.faqs.index', compact('faqs','num_of_pages', 'page'));
 
-            
+
         } else {
             return redirect()->route('faqs.index', ['page'=>1]);
         }
@@ -49,7 +49,7 @@ class FaqController extends Controller
             Alert::error('error', session()->get('error'));
         }
 
-        return view('faqs.form');
+        return view('admin.faqs.form');
     }
 
 
@@ -81,12 +81,12 @@ class FaqController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
     }
 
     public function show($id) {
-        
+
         if(session()->has('success')) {
             Alert::success('success', session()->get('success'));
         }
@@ -97,7 +97,7 @@ class FaqController extends Controller
 
         $faq = Faq::findOrFail($id);
 
-        return view('faqs.form', compact('faq'));
+        return view('admin.faqs.form', compact('faq'));
     }
 
 
@@ -134,9 +134,9 @@ class FaqController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
-        
+
     }
 
     public function destroy(Request $request)

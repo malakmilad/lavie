@@ -28,14 +28,14 @@ class AboutController extends Controller
             $all_records_count = $query->count();
 
             $num_of_pages = (int) ceil($all_records_count / $records_to_show);
-            
+
             $abouts = $query->skip($records_to_skip)
             ->take($records_to_show)
             ->get();
 
-            return view('abouts.index', compact('abouts','num_of_pages', 'page'));
+            return view('admin.abouts.index', compact('abouts','num_of_pages', 'page'));
 
-            
+
         } else {
             return redirect()->route('abouts.index', ['page'=>1]);
         }
@@ -52,7 +52,7 @@ class AboutController extends Controller
             Alert::error('error', session()->get('error'));
         }
 
-        return view('abouts.form');
+        return view('admin.abouts.form');
     }
 
     public function store(Request $request) {
@@ -85,12 +85,12 @@ class AboutController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
     }
 
     public function show($id) {
-        
+
         if(session()->has('success')) {
             Alert::success('success', session()->get('success'));
         }
@@ -101,7 +101,7 @@ class AboutController extends Controller
 
         $about = About::findOrFail($id);
 
-        return view('abouts.form', compact('about'));
+        return view('admin.abouts.form', compact('about'));
     }
 
     public function update(Request $request, About $about, $id)
@@ -128,7 +128,7 @@ class AboutController extends Controller
             if($about->save()) {
                 $status = 1;
             }
-            
+
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
 
@@ -142,9 +142,9 @@ class AboutController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
-        
+
     }
 
     public function destroy(Request $request)
@@ -188,30 +188,30 @@ class AboutController extends Controller
 
         // Get the uploaded file
         $file = $request->file($file_name);
-    
+
         // Validation rules for general files
         $fileRules = [
             $file_name => $rules,
         ];
-    
+
         // Validate the file input
         $this->validate($request, $fileRules);
-    
+
         // Generate a unique name for the file
         $fileName = uniqid().'_'.Str::random(6).'.'.$file->getClientOriginalExtension();
-    
+
         // Specify the directory where you want to save the file
         $directory = 'uploads/'.$folder_name;
-    
+
         // Create the directory if it doesn't exist
         File::makeDirectory($directory, $mode = 0777, true, true);
-    
+
         // Move the uploaded file to the specified directory
         $file->move($directory, $fileName);
-    
+
         // Return the path of the uploaded file
         return $folder_name.'/'.$fileName;
     }
-    
+
 
 }

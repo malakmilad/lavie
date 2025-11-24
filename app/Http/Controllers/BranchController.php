@@ -28,14 +28,14 @@ class BranchController extends Controller
             $all_records_count = $query->count();
 
             $num_of_pages = (int) ceil($all_records_count / $records_to_show);
-            
+
             $branches = $query->skip($records_to_skip)
             ->take($records_to_show)
             ->get();
 
-            return view('branches.index', compact('branches','num_of_pages', 'page'));
+            return view('admin.branches.index', compact('branches','num_of_pages', 'page'));
 
-            
+
         } else {
             return redirect()->route('branches.index', ['page'=>1]);
         }
@@ -52,7 +52,7 @@ class BranchController extends Controller
             Alert::error('error', session()->get('error'));
         }
 
-        return view('branches.form');
+        return view('admin.branches.form');
     }
 
     public function store(Request $request) {
@@ -81,12 +81,12 @@ class BranchController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
     }
 
     public function show($id) {
-        
+
         if(session()->has('success')) {
             Alert::success('success', session()->get('success'));
         }
@@ -97,7 +97,7 @@ class BranchController extends Controller
 
         $branch = Branch::findOrFail($id);
 
-        return view('branches.form', compact('branch'));
+        return view('admin.branches.form', compact('branch'));
     }
 
     public function update(Request $request, Branch $branch, $id)
@@ -112,13 +112,13 @@ class BranchController extends Controller
             $branch = Branch::findOrFail($id);
 
             $inputs = $request->all();
-           
+
             $branch->fill($inputs);
 
             if($branch->save()) {
                 $status = 1;
             }
-            
+
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
 
@@ -132,9 +132,9 @@ class BranchController extends Controller
             Log::error($error);
             Session()->flash('error' , 'Something went wrong.');
         }
-       
+
         return redirect()->back();
-        
+
     }
 
     public function destroy(Request $request)
@@ -170,6 +170,6 @@ class BranchController extends Controller
             'latitude' => ['required', 'string', 'max:64'],
             'longitude' => ['required', 'string', 'max:64'],
         ]);
-    }  
+    }
 
 }
