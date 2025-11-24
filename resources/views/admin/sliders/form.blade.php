@@ -139,8 +139,8 @@
 @endsection
 @section('js')
 <!--Internal Fileuploads js-->
-<script src="{{URL::asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
-<script src="{{URL::asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
+<script src="{{URL::asset('admin/assets/plugins/fileuploads/js/fileupload.js')}}"></script>
+<script src="{{URL::asset('admin/assets/plugins/fileuploads/js/file-upload.js')}}"></script>
 <!-- Include the CKEditor library -->
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 

@@ -5,8 +5,8 @@
 			<div class="main-sidebar-header active">
 				<a class="desktop-logo logo-light active" href="{{ url('/admins')}}"><img src="{{URL::asset('admin/assets/img/brand/logo.png')}}" class="main-logo" alt="logo"></a>
 				<a class="desktop-logo logo-dark active" href="{{ url('/admins')}}"><img src="{{URL::asset('admin/assets/img/brand/logo.png')}}" class="main-logo dark-theme" alt="logo"></a>
-				<a class="logo-icon mobile-logo icon-light active" href="{{ url('/admins')}}"><img src="{{URL::asset('admin/assets/img/brand/favicon.ico')}}" class="logo-icon" alt="logo"></a>
-				<a class="logo-icon mobile-logo icon-dark active" href="{{ url('/admins')}}"><img src="{{URL::asset('admin/assets/img/brand/favicon.ico')}}" class="logo-icon dark-theme" alt="logo"></a>
+				<a class="logo-icon mobile-logo icon-light active" href="{{ url('/admins')}}"><img src="{{URL::asset('admin/assets/img/brand/favicon.png')}}" class="logo-icon" alt="logo"></a>
+				<a class="logo-icon mobile-logo icon-dark active" href="{{ url('/admins')}}"><img src="{{URL::asset('admin/assets/img/brand/favicon.png')}}" class="logo-icon dark-theme" alt="logo"></a>
 			</div>
 			<div class="main-sidemenu">
 				<div class="app-sidebar__user clearfix">

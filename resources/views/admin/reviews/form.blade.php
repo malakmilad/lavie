@@ -140,8 +140,8 @@
 @endsection
 @section('js')
 <!--Internal Fileuploads js-->
-<script src="{{URL::asset('assets/plugins/fileuploads/js/fileupload.js')}}"></script>
-<script src="{{URL::asset('assets/plugins/fileuploads/js/file-upload.js')}}"></script>
+<script src="{{URL::asset('admin/assets/plugins/fileuploads/js/fileupload.js')}}"></script>
+<script src="{{URL::asset('admin/assets/plugins/fileuploads/js/file-upload.js')}}"></script>
 
 <script>
 	$(document).ready(function() {
