@@ -4,7 +4,7 @@
 @endsection
 @section('css')
 <!---Internal Fileupload css-->
-<link href="{{URL::asset('assets/plugins/fileuploads/css/fileupload.css')}}" rel="stylesheet" type="text/css"/>
+<link href="{{URL::asset('admin/assets/plugins/fileuploads/css/fileupload.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('page-header')
 	<!-- breadcrumb -->
